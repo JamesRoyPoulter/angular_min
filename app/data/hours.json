@@ -1,0 +1,13 @@
+{"client": "client_name_1",
+  "hours": [
+      {"hour": 1,
+      "impressions": 1,
+      "shares": 2,
+      "fbclicks": 3,
+      "conversions": 4 },
+      {"hour": 2, "impressions": 1, "shares": 2, "fbclicks": 3, "conversions": 4 },
+      {"hour": 3, "impressions": 1, "shares": 2, "fbclicks": 3, "conversions": 4 },
+      {"hour": 4, "impressions": 1, "shares": 2, "fbclicks": 3, "conversions": 4 },
+      {"hour": 24, "impressions": 1, "shares": 2, "fbclicks": 3, "conversions": 4 }
+  ]
+}

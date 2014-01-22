@@ -1,0 +1,88 @@
+<div class="header" id='header_top'>
+  <ul class="nav nav-tabs pull-right pull-down">
+    <li class="active"><a ng-href="#">Dash</a></li>
+    <li><a ng-href="#">Account</a></li>
+    <li><a ng-href="#">Logout</a></li>
+  </ul>
+  <h3 class="text-muted"><img src="images/rummble_labs_logo.png" alt="RummbleLabs" style="height:40px"></h3>
+</div>
+
+<div class="row header" id='client_header'>
+  <div class="col-md-8">
+    <h1>Welcome {{clientName}}! {{fourteenImpressions}}</h1>
+  </div>
+
+    <div class="col-md-4" id='right-bits'>
+      <div id='date-range'>date/range - date/range</div>
+      <div class="btn-group" id='drop-down'>
+          <button type="button" class="btn btn-default">Day</button>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#/days">Day</a></li>
+            <li><a href="#/weeks">Week</a></li>
+            <li><a href="#/months">Month</a></li>
+          </ul>
+        </div>
+      </div>
+
+</div><!-- closes row -->
+
+<div class='row'>
+
+  <div class="col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li id="impressions" ng-click="showImpressions=true;showShares=false;showVisits=false;showConversions=false;showMain=true">
+          <div class="metricTitle">Impressions</div>
+          <span class="glyphicon glyphicon-stats"></span>
+          <div><div class="count">{{impressionsDayNow}} </div>
+          <div class="delta">{{impressionsDayDelta}}</div></div>
+      </li>
+
+      <li id='shares' ng-click="showShares=true;showImpressions=false;showVisits=false;showConversions=false;showMain=true">
+          <div class="metricTitle">Shares</div>
+          <span class="glyphicon glyphicon-stats"></span>
+          <div><div class="count">{{sharesDayNow}} </div>
+          <div class="delta">{{sharesDayDelta}}</div></div>
+      </li>
+
+      <li id='visits' ng-click="showVisits=true;showImpressions=false;showShares=false;showConversions=false;showMain=true">
+          <div class="metricTitle">Visits</div>
+          <span class="glyphicon glyphicon-stats"></span>
+          <div><div class="count">{{fbclicksDayNow}} </div>
+          <div class="delta">{{fbclicksDayDelta}}</div></div>
+      </li>
+
+      <li id='conversions' ng-click="showConversions=true;showImpressions=false;showShares=false;showVisits=false;showMain=true">
+          <div class="metricTitle">Conversions</div>
+          <span class="glyphicon glyphicon-stats"></span>
+          <div><div class="count">{{conversionsDayNow}} </div>
+          <div class="delta">{{conversionsDayDelta}}</div></div>
+      </li>
+    </ul>
+    <br>
+  </div>
+
+  <div class="jumbotron col-md-9" ng-hide="showMain">
+    <canvas chart type="Line" options="mainOptions" data="mainData" width="650" height="350"></canvas>
+  </div>
+  <div class="jumbotron col-md-9" ng-show="showImpressions">
+    <canvas chart type="Line" options="impressionsOptions" data="impressions" width="650" height="350"></canvas>
+  </div>
+  <div class="jumbotron col-md-9" ng-show="showShares">
+    <canvas chart type="Line" options="sharesOptions" data="shares" width="650" height="350"></canvas>
+  </div>
+  <div class="jumbotron col-md-9" ng-show="showVisits">
+    <canvas chart type="Line" options="fbclicksOptions" data="fbclicks" width="650" height="350"></canvas>
+  </div>
+  <div class="jumbotron col-md-9" ng-show="showConversions">
+    <canvas chart type="Line" options="conversionsOptions" data="conversions" width="650" height="350"></canvas>
+  </div>
+
+</div><!-- closes row -->
+
+<div class="footer">
+  <p>♥ from the Rummble Labs team</p>
+</div>
