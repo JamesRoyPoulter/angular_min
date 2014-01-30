@@ -21,7 +21,7 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: {
       // configurable paths
-      app: require('./bower.json').appPath || 'app',
+      app: require('./bower.json').appPath || 'dist',
       dist: 'dist'
     },
 
@@ -82,7 +82,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          base: '<%= yeoman.heroku %>'
+          base: '<%= yeoman.dist %>'
         }
       }
     },
@@ -152,10 +152,10 @@ module.exports = function (grunt) {
       dist: {
         files: {
           src: [
-            '<%= yeoman.heroku %>/scripts/{,*/}*.js',
-            '<%= yeoman.heroku %>/styles/{,*/}*.css',
-            '<%= yeoman.heroku %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.heroku %>/styles/fonts/*'
+            '<%= yeoman.dist %>/scripts/{,*/}*.js',
+            '<%= yeoman.dist %>/styles/{,*/}*.css',
+            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            '<%= yeoman.dist %>/styles/fonts/*'
           ]
         }
       }
@@ -167,37 +167,27 @@ module.exports = function (grunt) {
     useminPrepare: {
       html: '<%= yeoman.app %>/index.html',
       options: {
-        dest: '<%= yeoman.heroku %>'
+        dest: '<%= yeoman.dist %>'
       }
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.heroku %>/{,*/}*.html'],
-      css: ['<%= yeoman.heroku %>/styles/{,*/}*.css'],
+      html: ['<%= yeoman.dist %>/{,*/}*.html'],
+      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       options: {
-        assetsDirs: ['<%= yeoman.heroku %>']
+        assetsDirs: ['<%= yeoman.dist %>']
       }
     },
 
     // The following *-min tasks produce minified files in the dist folder
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.heroku %>/images'
-        }]
-      }
-    },
     svgmin: {
       dist: {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/images',
           src: '{,*/}*.svg',
-          dest: '<%= yeoman.heroku %>/images'
+          dest: '<%= yeoman.dist %>/images'
         }]
       }
     },
@@ -211,9 +201,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= yeoman.heroku %>',
+          cwd: '<%= yeoman.dist %>',
           src: ['*.html', 'views/{,*/}*.html'],
-          dest: '<%= yeoman.heroku %>'
+          dest: '<%= yeoman.dist %>'
         }]
       }
     },
@@ -234,7 +224,7 @@ module.exports = function (grunt) {
     // Replace Google CDN references
     cdnify: {
       dist: {
-        html: ['<%= yeoman.heroku %>/*.html']
+        html: ['<%= yeoman.dist %>/*.html']
       }
     },
 
@@ -245,7 +235,7 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.heroku %>',
+          dest: '<%= yeoman.dist %>',
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
@@ -258,7 +248,7 @@ module.exports = function (grunt) {
         }, {
           expand: true,
           cwd: '.tmp/images',
-          dest: '<%= yeoman.heroku %>/images',
+          dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
         }]
       },
@@ -280,7 +270,6 @@ module.exports = function (grunt) {
       ],
       dist: [
         'copy:styles',
-        'imagemin',
         'svgmin'
       ]
     },
@@ -291,24 +280,39 @@ module.exports = function (grunt) {
     // cssmin: {
     //   dist: {
     //     files: {
-    //       '<%= yeoman.heroku %>/styles/main.css': [
+    //       '<%= yeoman.dist %>/styles/main.css': [
     //         '.tmp/styles/{,*/}*.css',
     //         '<%= yeoman.app %>/styles/{,*/}*.css'
     //       ]
     //     }
     //   }
     // },
+    // concat: {
+    //   dist: {
+    //     'tmp/concat/js/app.js': [
+    //       'bower_components/jquery/jquery.js',
+    //       'bower_components/angular/angular.js',
+    //       'bower_components/bootstrap/dist/js/bootstrap.js',
+    //       'libs/Chart.js/Chart.min.js',
+    //       'http://code.angularjs.org/1.2.6/angular-route.min.js',
+    //       'http://code.angularjs.org/1.2.6/angular-resource.min.js',
+    //       'libs/angles.js',
+    //       'scripts/app.js',
+    //       'scripts/services.js',
+    //       'scripts/controllers/days.js',
+    //       'scripts/controllers/weeks.js',
+    //       'scripts/controllers/months.js'
+    //       ]
+    //   },
+    // },
     // uglify: {
     //   dist: {
     //     files: {
-    //       '<%= yeoman.heroku %>/scripts/scripts.js': [
-    //         '<%= yeoman.heroku %>/scripts/scripts.js'
+    //       '<%= yeoman.dist %>/scripts/scripts.js': [
+    //         'tmp/concat/js/app.js'
     //       ]
     //     }
     //   }
-    // },
-    // concat: {
-    //   dist: {}
     // },
   });
 

@@ -2,7 +2,10 @@
   "name": "angulartestmin",
   "version": "0.0.0",
   "private": "true",
-  "dependencies": {},
+  "dependencies": {
+    "gzippo": "~0.2.0",
+    "express": "~3.4.8"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-autoprefixer": "~0.4.0",

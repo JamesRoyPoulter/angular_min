@@ -32,24 +32,22 @@
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <!-- build:js scripts/vendor.js -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
-    <!-- endbuild -->
+    <script src="libs/Chart.js/Chart.min.js"></script>
+    <script src="libs/angles.js"></script>
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="libs/Chart.js/Chart.min.js"></script>
-        <script src="http://code.angularjs.org/1.2.6/angular-route.min.js"></script>
-        <script src="http://code.angularjs.org/1.2.6/angular-resource.min.js"></script>
-        <script src="libs/angles.js"></script>
-        <script src="scripts/services.js"></script>
-        <script src="scripts/controllers/days.js"></script>
-        <script src="scripts/controllers/weeks.js"></script>
-        <script src="scripts/controllers/months.js"></script>
-        <!-- endbuild -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services.js"></script>
+    <script src="scripts/controllers/days.js"></script>
+    <script src="scripts/controllers/weeks.js"></script>
+    <script src="scripts/controllers/months.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
